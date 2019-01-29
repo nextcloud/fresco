@@ -42,6 +42,7 @@ public class ImageRequestBuilder {
   private @Nullable Postprocessor mPostprocessor = null;
   private @Nullable Boolean mDecodePrefetches = null;
   private @Nullable RequestListener mRequestListener;
+  private @Nullable Map<String, String> mHeaders = null;
   private @Nullable BytesRange mBytesRange = null;
   private @Nullable Boolean mResizingAllowedOverride = null;
   private int mDelayMs;
@@ -97,6 +98,7 @@ public class ImageRequestBuilder {
         .setRequestPriority(imageRequest.getPriority())
         .setResizeOptions(imageRequest.getResizeOptions())
         .setRequestListener(imageRequest.getRequestListener())
+        .setHeaders(imageRequest.getHeaders())
         .setRotationOptions(imageRequest.getRotationOptions())
         .setShouldDecodePrefetches(imageRequest.shouldDecodePrefetches())
         .setDelayMs(imageRequest.getDelayMs());
@@ -363,6 +365,18 @@ public class ImageRequestBuilder {
     return mPostprocessor;
   }
 
+  /** Sets the HTTP headers.
+   * @param headers HTTP headers to send when requesting the image. */
+  public ImageRequestBuilder setHeaders(Map<String, String> headers) {
+    mHeaders = headers;
+    return this;
+  }
+
+  /** Gets the HTTP headers associated with this image request. May be null. */
+  public @Nullable Map<String, String> getHeaders() {
+    return mHeaders;
+  }
+  
   /**
    * Sets a request listener to use for just this image request
    *
