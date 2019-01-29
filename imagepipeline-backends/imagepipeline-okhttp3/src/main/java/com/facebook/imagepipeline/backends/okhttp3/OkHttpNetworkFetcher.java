@@ -101,9 +101,15 @@ public class OkHttpNetworkFetcher extends
     fetchState.submitTime = SystemClock.elapsedRealtime();
     final Uri uri = fetchState.getUri();
 
+    Map<String, String> headers = fetchState.getContext().getImageRequest().getHeaders();
+    if (headers == null) {
+      headers = Collections.emptyMap();
+    }
+
     try {
       final Request.Builder requestBuilder = new Request.Builder()
           .url(uri.toString())
+          .headers(Headers.of(headers))
           .get();
 
       if (mCacheControl != null) {

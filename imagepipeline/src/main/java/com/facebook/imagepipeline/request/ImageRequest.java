@@ -94,6 +94,9 @@ public class ImageRequest {
   /** Request listener to use for this image request */
   private final @Nullable RequestListener mRequestListener;
 
+  /** HTTP headers to send when requesting the image. */
+  private final @Nullable Map<String, String> mHeaders;
+
   /**
    * Controls whether resizing is allowed for this request.
    * true  -> allow for this request.
@@ -138,6 +141,8 @@ public class ImageRequest {
     mPostprocessor = builder.getPostprocessor();
 
     mRequestListener = builder.getRequestListener();
+
+    mHeaders = builder.getHeaders();
 
     mResizingAllowedOverride = builder.getResizingAllowedOverride();
   }
@@ -232,6 +237,10 @@ public class ImageRequest {
 
   public @Nullable RequestListener getRequestListener() {
     return mRequestListener;
+  }
+
+  public @Nullable Map<String, String> getHeaders() {
+    return mHeaders;
   }
 
   @Override
