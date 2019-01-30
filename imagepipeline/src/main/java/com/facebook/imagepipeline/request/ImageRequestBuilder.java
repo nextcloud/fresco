@@ -22,6 +22,7 @@ import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.core.ImagePipelineExperiments;
 import com.facebook.imagepipeline.listener.RequestListener;
+import java.util.Map;
 import javax.annotation.Nullable;
 
 /** Builder class for {@link ImageRequest}s. */

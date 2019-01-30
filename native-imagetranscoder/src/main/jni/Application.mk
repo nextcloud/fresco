@@ -23,5 +23,5 @@ NDK_TOOLCHAIN_VERSION := clang
 # We also need to make sure that our library does not use any stl functions
 # coming from other stl implementations as well
 
-# This hides all symbols exported from libgnustl_static
+# This hides all symbols exported from libc++_static
 FRESCO_CPP_LDFLAGS := -Wl,--gc-sections
